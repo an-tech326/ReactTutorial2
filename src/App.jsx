@@ -1,3 +1,5 @@
+import { ColorMessage } from "./components/ColorMessage";
+
 export const App = ()=>{
     const onClickButton = ()=>alert();
     const contentStyle = {
@@ -6,8 +8,8 @@ export const App = ()=>{
     };
     return (
     <>
-        <h1 style={{color:"red"}}>hello</h1>
-        <h1 style={contentStyle}>world</h1>
+        <ColorMessage color="red" message="hello"/>
+        <ColorMessage color="blue">world</ColorMessage>
         <button onClick={onClickButton}>button</button>
     </>
     );
