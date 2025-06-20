@@ -1,23 +1,24 @@
-import { ColorMessage } from "./components/ColorMessage";
 import { useState } from "react";
+import { ChildArea } from "./ChildArea";
 
 export const App = ()=>{
-    const [num,setNum]=useState(0);
-    const onClickCountUp = ()=>setNum(num+1);
-    const[isShow,setIsShow]=useState(true);
-    const onClickToggle = ()=>setIsShow(!isShow);
-    const contentStyle = {
-        color:"blue",
-        fontSize:"18px"
-    };
+    const [count,setCount]=useState(0);
+    const [text, setText]=useState('')
+    const [open, setOpen]=useState(false);
+    const onClickCountUp = ()=>setCount(count+1);
+    const onChangeText = (e)=>{
+        setText(e.target.value);
+    }
+    const onClickOpen=()=>setOpen(!open);
     return (
     <>
-        <ColorMessage color="red" message="hello"/>
-        <ColorMessage color="blue">world</ColorMessage>
-        <button onClick={onClickCountUp}>countUp</button>
-        <p>{num}</p>
-        <button onClick={onClickToggle}>show</button>
-        {isShow&&<p>$$$$$</p>}
+       <div className="App">
+            <input valu={text} onChange={onChangeText}/>
+            <br />
+            <br />
+            <button onClick={onClickOpen}>表示</button>
+            <ChildArea open={open}/>
+        </div> 
     </>
     );
 }
