@@ -1,5 +1,10 @@
 import { useState ,useCallback} from "react";
 import { ChildArea } from "./ChildArea";
+import { InlineStyle } from "./components/InlineStyle";
+import { CssModules } from "./components/CssModules";
+import { StyledJsx } from "./components/StyledJsx";
+import { StyledComponents } from "./components/StyledComponents";
+import { Emotion } from "./components/Emotion";
 
 export const App = ()=>{
     const [count,setCount]=useState(0);
@@ -18,6 +23,11 @@ export const App = ()=>{
             <br />
             <button onClick={onClickOpen}>表示</button>
             <ChildArea open={open} onClickClose={onClickClose}/>
+            <InlineStyle />
+            <CssModules />
+            <StyledJsx />
+            <StyledComponents />
+            <Emotion />
         </div> 
     </>
     );
