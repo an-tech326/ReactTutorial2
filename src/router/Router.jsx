@@ -1,6 +1,8 @@
 
 import { Routes, Route } from "react-router-dom";
-import { page1Routers } from "./Page1Routes";
+import { page1Routers } from "../Page1";
+import { page2Routers } from "../Page2";
+import { HomeRoutes } from "../Home";
 
 const renderRouter = (list) =>
     list.map(({ path, element, children, index }, i) => (
@@ -12,10 +14,12 @@ const renderRouter = (list) =>
             {children && renderRouter(children)}
         </Route>
     ));
+
 export const Router = () => {
+    const routes = [HomeRoutes ,page1Routers,page2Routers]
     return (
         <Routes>
-            {renderRouter(page1Routers)}
+            {routes.map(route=>renderRouter(route))}
         </Routes>
     );
 }

@@ -1,4 +1,6 @@
-import {  Link,  Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { DetailA } from "./Page1DetailA";
+import { DetailB } from "./Page1DetailB";
 export const Page1 = () =>{
     return (
         <>
@@ -11,3 +13,19 @@ export const Page1 = () =>{
         </>
     )
 }
+export const page1Routers = [
+    {
+        path:"/page1",
+        element:<Page1 />,
+        children:[
+            {
+                path: "DetailA",
+                element:<DetailA/>
+            },
+            {
+                path: "DetailB",
+                element:<DetailB/>
+            }
+        ]
+    }
+]

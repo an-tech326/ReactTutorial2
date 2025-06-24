@@ -7,3 +7,10 @@ export const Home = () =>{
         </>
     )
 }
+
+export const HomeRoutes = [
+    {
+        path:"/",
+        element:<Home />
+    }
+]

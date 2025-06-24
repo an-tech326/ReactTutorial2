@@ -8,3 +8,10 @@ export const Page2 = () =>{
         </>
     )
 }
+
+export const page2Routers = [
+    {
+        path:"/page2",
+        element:<Page2 />
+    }
+];
