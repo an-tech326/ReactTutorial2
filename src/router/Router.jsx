@@ -16,10 +16,10 @@ const renderRouter = (list) =>
     ));
 
 export const Router = () => {
-    const routes = [HomeRoutes ,page1Routers,page2Routers]
+    const routes = [HomeRoutes, page1Routers, page2Routers].flat();
     return (
         <Routes>
-            {routes.map(route=>renderRouter(route))}
+            {renderRouter(routes)}
         </Routes>
     );
 }
