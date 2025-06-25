@@ -2,8 +2,8 @@
 import { PrimaryButton } from "./atoms/button/PrimaryButton";
 import { SecondaryButton } from "./atoms/button/SecondaryButton";
 import { SearchInput } from "./molecules/SearchInput";
+import { UserCard } from "./organisms/user/UserCard";
 import "./styles.css";
-
 export default function App() {
   return (
     <div className="App">
@@ -12,6 +12,7 @@ export default function App() {
       <PrimaryButton>Primary</PrimaryButton>
       <SecondaryButton>Secondary</SecondaryButton>
       <SearchInput />
+      <UserCard/>
     </div>
   );
 }
