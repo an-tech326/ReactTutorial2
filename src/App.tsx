@@ -5,7 +5,13 @@ import { useState } from "react";
 import { Todo } from "./Todo";
 import { TodoType } from "./types/TodoType";
 import {Text}from "./Text"
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
 
+const user:User={
+  name:"libro",
+  tastes:["maimai","game"]
+}
 
 export default function App() {
   const [todos,setTodos]=useState<Array<TodoType>>([]);
@@ -21,6 +27,7 @@ export default function App() {
         <Todo title={todo.title} userId={todo.userId} completed={todo.completed}/>
       ))}
       <Text color="red"fontSize="18px"/>
+      <UserProfile user={user}/>
     </div>
   );
 }
