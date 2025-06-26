@@ -2,7 +2,10 @@ import styled from "styled-components"
 import { HeaderOnly } from "../templates/HeaderOnly"
 import { SearchInput } from "../molecules/SearchInput"
 import { UserCard, userSample } from "../organisms/user/UserCard"
+import { useLocation } from "react-router-dom"
 export const Users = () =>{
+    const {state}=useLocation();
+    const isAdmin = state ? state.isAdmin : false;
     return(
         <>
         <HeaderOnly>
@@ -11,7 +14,7 @@ export const Users = () =>{
                 <SearchInput />
                 <SUserArea>
                     {users.map((user) => (
-                        <UserCard key={user.id} user={user} />
+                        <UserCard key={user.id} user={user} isAdmin={isAdmin} />
                     ))}
                 </SUserArea>
             </SContainer>

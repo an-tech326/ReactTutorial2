@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { SButton } from "./PrimaryButton";
 export const SecondaryButton = (props)=>{
-    const {children}=props;
+    const {children, onClick}=props;
     return(
-        <SSButton>{children}</SSButton>
+        <SSButton onClick={onClick}>{children}</SSButton>
     )
 }
 

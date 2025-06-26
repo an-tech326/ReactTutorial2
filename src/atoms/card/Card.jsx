@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Card = ({user})=>{
+export const Card = ({user,isAdmin})=>{
     return(
         <>
         <SCard>
@@ -15,6 +15,7 @@ export const Card = ({user})=>{
                     <dd>{user.company}</dd>
                     <dt>web</dt>
                     <dd>{user.web}</dd>
+                    {isAdmin&&<SEdit>edit</SEdit>}
                 </SDl>
             </SCard>
         </>
@@ -35,4 +36,9 @@ const SCard = styled.div`
     box-shadow:#ddd 0px 0px 4px 2px;
     border-radius: 8px;
     padding:16px;
+`
+const SEdit = styled.span`
+    text-decoration:underline;
+    color:#aaa;
+    cursor:pointer;
 `
