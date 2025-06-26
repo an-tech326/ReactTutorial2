@@ -4,15 +4,15 @@ import sampleUserImage from "../../img/kevin-woblick-NIAlMzwwbNA-unsplash.jpg"
 import { Card } from "../../atoms/card/Card";
 import { UserContext } from "../../providers/UserProvider";
 
-export const UserCard = props=>{
+export const UserCard = memo(props=>{
     const {userInfo,setUserInfo}=useContext(UserContext);
     const {user=userSample} = props;
     return(
         <>
-        <Card user={user} isAdmin={userInfo.isAdmin}/>
+        <Card user={user} isAdmin={userInfo?.isAdmin}/>
         </>
     )
-}
+})
 
 export const userSample={
     name:"username",

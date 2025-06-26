@@ -2,13 +2,21 @@ import styled from "styled-components"
 import { HeaderOnly } from "../templates/HeaderOnly"
 import { SearchInput } from "../molecules/SearchInput"
 import { UserCard, userSample } from "../organisms/user/UserCard"
-export const Users = () =>{
+import { SecondaryButton } from "../atoms/button/SecondaryButton"
+import { useContext } from "react"
+import { UserContext } from "../providers/UserProvider"
+export const Users = memo(() =>{
+    const { userInfo, setUserInfo } = useContext(UserContext);
+    const onClickAdmin = () => {
+        setUserInfo({isAdmin:!userInfo.isAdmin});
+    }
     return(
         <>
         <HeaderOnly>
             <SContainer>
                 <h2>Users</h2>
                 <SearchInput />
+                <SecondaryButton onClick={onClickAdmin}>Change Admin</SecondaryButton>
                 <SUserArea>
                     {users.map((user) => (
                         <UserCard key={user.id} user={user} />
@@ -18,7 +26,7 @@ export const Users = () =>{
         </HeaderOnly>
         </>
     )
-}
+});
 const SContainer = styled.div`
     display: flex;
     flex-direction: column;
