@@ -2,11 +2,20 @@ import styled from "styled-components"
 import { DefaultLayout } from "../templates/DefaultLayout"
 import { SecondaryButton } from "../atoms/button/SecondaryButton"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider"
 
 export const Top = () =>{
     const history = useNavigate();
-    const ClickAdmin = () => { history("/users", { state: { isAdmin: true } }); }
-    const ClickUser = () => { history("/users", { state: { isAdmin: false } }); }
+    const {userInfo,setUserInfo}=useContext(UserContext);
+    const ClickAdmin = () => {
+        setUserInfo({isAdmin:true})
+         history("/users");
+         }
+    const ClickUser = () => { 
+        setUserInfo({isAdmin:false})
+        history("/users"); 
+    }
     return(
         <>
         <DefaultLayout>
